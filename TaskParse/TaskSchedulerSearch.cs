@@ -26,11 +26,16 @@ namespace TaskParse
             InitializeComponent();
 
             //R file search in tasks
-            ReleventActions.Add(new Regex(@"[a-zA-Z]:[\\\/](?:[a-zA-Z0-9]+[\\\/])*([a-zA-Z0-9]+\.R)"));
+            ReleventActions.Add(new Regex(@"[a-zA-Z]:[\\\/](?:[a-zA-Z0-9]+[\\\/])*([\w\-. ]+\.R)"));
 
             //VBS file search in tasks
-            ReleventActions.Add(new Regex(@"[a-zA-Z]:[\\\/](?:[a-zA-Z0-9]+[\\\/])*([a-zA-Z0-9]+\.vbs)"));
+            ReleventActions.Add(new Regex(@"[a-zA-Z]:[\\\/](?:[a-zA-Z0-9]+[\\\/])*([\w\-. ]+\.vbs)"));
 
+            //R file search in tasks
+            ReleventActions.Add(new Regex(@"(\\\)(\\\[\w\.-_]+){2,}(\\?)\[\w\-.]+\.R)"));
+
+            //VBS file search in tasks
+            ReleventActions.Add(new Regex(@"(\\\)(\\\[\w\.-_]+){2,}(\\?)\[\w\-.]+\.vbs)"));
 
         }
 
